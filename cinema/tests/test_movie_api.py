@@ -178,6 +178,25 @@ class MovieApiTests(TestCase):
         actor1 = sample_actor(first_name="Tom", last_name="Hardy")
         actor2 = sample_actor(first_name="Brad", last_name="Pitt")
 
+        movie1 = sample_movie(title="Harry Potter")
+        movie2 = sample_movie(title="Lord of the Rings")
+        movie3 = sample_movie(title="7 Days to die")
+
+        movie1.actors.add(actor1)
+        movie2.actors.add(actor2)
+        movie3.actors.add(actor2)
+
+        res = self.client.get(MOVIE_URL, {"title": "Harry"})
+
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(res.data), 1)
+        self.assertEqual(res.data[0]["title"], movie1.title)
+
+
+    def test_filter_movies_by_actors(self):
+        actor1 = sample_actor(first_name="Tom", last_name="Hardy")
+        actor2 = sample_actor(first_name="Brad", last_name="Pitt")
+
         movie1 = sample_movie(title="Movie1")
         movie2 = sample_movie(title="Movie2")
 

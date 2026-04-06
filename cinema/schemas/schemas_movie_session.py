@@ -5,14 +5,14 @@ from cinema.serializers import MovieSessionSerializer
 movie_param = openapi.Parameter(
     "movie",
     openapi.IN_QUERY,
-    description="test movie param, accepts only one movie",
+    description="Filter by date movie name",
     type=openapi.TYPE_STRING,
 )
 
 date_param = openapi.Parameter(
     "date",
     openapi.IN_QUERY,
-    description="test date param, accepts only one date",
+    description="Filter by date",
     type=openapi.TYPE_STRING,
     format=openapi.FORMAT_DATE,
 )

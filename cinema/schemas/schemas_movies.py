@@ -5,21 +5,21 @@ from cinema.serializers import MovieListSerializer
 title_param = openapi.Parameter(
     "title",
     openapi.IN_QUERY,
-    description="test title param, accepts only one title",
+    description="Filter by title IDs. Provide a single title name",
     type=openapi.TYPE_STRING,
 )
 
 genres_param = openapi.Parameter(
     "genres",
     openapi.IN_QUERY,
-    description="accepts 'id' genre/s",
+    description="Filter by actor IDs. Provide a single ID or a comma-separated list of IDs (e.g., '1,2,5')",
     type=openapi.TYPE_STRING,
 )
 
 actors_param = openapi.Parameter(
     "actors",
     openapi.IN_QUERY,
-    description="test actors param, accepts 'id' actor/s",
+    description="Filter by actor IDs. Provide a single ID or a comma-separated list of IDs (e.g., '1,2,5')",
     type=openapi.TYPE_STRING,
 )
 
